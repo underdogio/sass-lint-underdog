@@ -30,7 +30,7 @@
   "homepage": "https://github.com/underdogio/sass-lint-underdog",
   "dependencies": {
     "optimist": "0.6.1",
-    "sass-lint": "1.5.1"
+    "sass-lint": "git://github.com/underdogio/sass-lint#070df8e"
   },
   "devDependencies": {
     "eslint": "2.2.0",
