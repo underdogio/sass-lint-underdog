@@ -7,7 +7,9 @@
     "sass-lint-underdog": "bin/sass-lint-underdog"
   },
   "scripts": {
-    "lint": "eslint index.js bin/sass-lint-underdog",
+    "lint": "npm run lint-js && npm run lint-sass",
+    "lint-js": "eslint index.js bin/sass-lint-underdog",
+    "lint-sass": "bin/sass-lint-underdog './test/*.scss'",
     "test": "npm run lint"
   },
   "repository": {

@@ -1,0 +1,25 @@
+// HEX notation and length
+$white: #FFFFFF;
+
+.cf {
+  clear: both;
+}
+
+.block {
+  // Allow @extend without placeholder
+  @extend .cf;
+
+  // Leading zero
+  font-size: 0.75rem;
+}
+
+.block--modifier {
+  // Vendor prefixes
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.block__element--modifier {
+  color: $white;
+}

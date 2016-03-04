@@ -15,19 +15,22 @@ var configPath = optimist.argv.config || optimist.argv.c;
 // Try to resolve the config needed for parsing files
 var resolvedConfig = sassLint.getConfig(defaultConfig, configPath);
 
-// Get the list of files included in the provided config
-// {files: {include: []}}
-resolvedConfig.files = resolvedConfig.files || {};
-var files = resolvedConfig.files.include || [];
-
-// Ensure `files` is an array
-if (!Array.isArray(files)) {
-  files = [files];
-}
-
-// Append any file name/patterns passed in through the command line
+// Get any file name/patterns passed in through the command line
 // e.g. `sass-lint-underdog "./**/*.scss"` or `sass-lint-underdog ./style.scss ./_vars.scss`
-files = files.concat(optimist.argv._);
+var files = optimist.argv._;
+
+// If no files were passed via command line, then fetch from config
+if (!files.length) {
+  // Get the list of files included in the provided config
+  // {files: {include: []}}
+  resolvedConfig.files = resolvedConfig.files || {};
+  files = resolvedConfig.files.include || [];
+
+  // Ensure `files` is an array
+  if (!Array.isArray(files)) {
+    files = [files];
+  }
+}
 
 // If no files were passed or found in the config, make sure we fail
 if (files.length === 0) {

@@ -1,13 +1,18 @@
 module.exports = {
+  files: {
+    ignore: [
+      'bower_components/**/*.*',
+      'node_modules/**/*.*'
+    ]
+  },
   options: {
-    formatter: 'stylish',
-    syntax: 'scss'
+    formatter: 'stylish'
   },
   rules: {
     'class-name-format': [
       2,
       // http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
-      {convention: 'hypthenatedbem'}
+      {convention: 'hyphenatedbem'}
    ],
 
     // TODO: Move this to an inline rule ignore in `public/icons/_icons-auto.scss` when the feature is landed
