@@ -5,4 +5,5 @@ node_js:
   - "0.12"
   - "0.10"
   - "iojs"
-  - "stable"
+  # Currently failing: https://travis-ci.org/underdogio/sass-lint-underdog/jobs/113722125
+  # - "stable"
