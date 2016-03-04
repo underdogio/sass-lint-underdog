@@ -1,0 +1,39 @@
+{
+  "name": "sass-lint-underdog",
+  "version": "1.0.0",
+  "description": "Wrapper for sass-lint with proper defaults for Underdog.io",
+  "main": "index.js",
+  "bin": {
+    "sass-lint-underdog": "bin/sass-lint-underdog"
+  },
+  "scripts": {
+    "lint": "eslint index.js bin/sass-lint-underdog",
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/underdogio/sass-lint-underdog.git"
+  },
+  "keywords": [
+    "sass",
+    "lint",
+    "sass-lint",
+    "config",
+    "styleguide",
+    "underdog"
+  ],
+  "author": "Brett Langdon <me@brett.is>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/underdogio/sass-lint-underdog/issues"
+  },
+  "homepage": "https://github.com/underdogio/sass-lint-underdog",
+  "dependencies": {
+    "optimist": "0.6.1",
+    "sass-lint": "1.5.1"
+  },
+  "devDependencies": {
+    "eslint": "2.2.0",
+    "eslint-config-underdog": "1.0.0"
+  }
+}

@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+/* eslint no-process-exit: 0 */
+
+var defaultConfig = require('../');
+var optimist = require('optimist');
+var sassLint = require('sass-lint');
+
+// Get the file name/patterns provided to this command
+// e.g. `sass-lint-underdog "./**/*.scss"` or `sass-lint-underdog ./style.scss ./_vars.scss`
+var files = optimist.argv._;
+
+// The code to exist with, we will change to 1 if there are warnings
+var errorCode = 0;
+
+// sass-lint cannot lint a list of files, so we have to iterate for it
+files.forEach(function handleEachFile (file) {
+  // Accept an additional config path to load overrides
+  var configPath = optimist.argv.config || optimist.argv.c;
+
+  // The follwing is the same as running `sass-lint --verbose [--config <config-file>]`
+  var detects = sassLint.lintFiles(file, defaultConfig, configPath);
+  sassLint.outputResults(detects, defaultConfig, optimist.argv.config);
+
+  if (sassLint.errorCount(detects).count) {
+    errorCode = 1;
+  }
+
+  sassLint.failOnError(detects);
+});
+
+process.on('exit', function () {
+  process.exit(errorCode);
+});
