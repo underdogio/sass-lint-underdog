@@ -48,6 +48,11 @@ files.forEach(function handleEachFile (file) {
     errorCode = 1;
   }
 
+  // Make sure we fail on warnings as well
+  if (sassLint.warningCount(detects).count) {
+    errorCode = 1;
+  }
+
   sassLint.failOnError(detects);
 });
 
